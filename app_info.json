@@ -1,0 +1,24 @@
+{
+    "plcnextapp": {
+        "name": "WolkConnect-PLCNext",
+        "identifier": "11111111111111",
+        "version": "1.0.2",
+        "target": "AXC F 2152",
+        "minfirmware_version": "23.0.0",
+        "manufacturer": "WolkAbout s.r.o."
+    },
+    "datastorage": {
+        "persistentdata": true,
+        "temporarydata": true
+    },
+     "linuxdaemons" :
+     [
+           {
+               "path": "/bin/DockerApp",
+               "cmdargs" : "",
+               "starttime": "99",
+               "initScriptTemplate": "initscript.sh"
+           }
+     ],
+     "plcnextservices" :[]
+}

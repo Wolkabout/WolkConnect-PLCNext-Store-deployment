@@ -1,0 +1,12 @@
+# JetBrains CLion specific files
+.idea/
+.idea/*
+
+# Ignore directories created by JetBrains IDEs
+/.idea/
+/.vscode/
+/.clion/
+# Ignore JetBrains IDE project files
+*.iws
+*.iml
+*.ipr

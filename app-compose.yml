@@ -1,0 +1,48 @@
+services:
+  main:
+    container_name: wolkconnect-plcnext-deployment-main${APP_UNIQUE_NAME}
+    image: f177131a5397
+    pull_policy: never
+    network_mode: "host"
+    logging:
+      options:
+        max-size: 10MB
+    restart: always
+    environment:
+      - REDIS_IP=localhost
+      - DEVICE_PASSWORD={{password}}
+      - CERTIFICATE_PATH=${APP_DATA_PATH}/cert/ca.crt
+    depends_on:
+      - redis_db
+    volumes:
+      - ${APP_DATA_PATH}/cert:/cert
+      - ${APP_DATA_PATH}/conf:/conf
+  web-ui:
+    container_name: wolkconnect-plcnext-deployment-web-ui${APP_UNIQUE_NAME}
+    image: 23b493345234
+    pull_policy: never
+    ports:
+      - "4000:80"
+    logging:
+      options:
+        max-size: 5MB
+    restart: always
+    depends_on:
+      - main
+  redis_db:
+    container_name: wolkconnect-plcnext-deployment-redis_db${APP_UNIQUE_NAME}
+    image: 55c4da518792
+    command: redis-server --save "" --appendonly no
+    pull_policy: never
+    restart: always
+    network_mode: "host"
+    logging:
+      options:
+        max-size: 5MB
+    volumes:
+      - redis_data:/data
+volumes:
+  redis_data:
+    driver: local
+  certificate_dir:
+    driver: local
