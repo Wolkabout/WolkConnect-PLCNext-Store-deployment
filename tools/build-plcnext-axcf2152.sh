@@ -4,7 +4,7 @@ This is script for making .app on the native platform AXCF2152 PLC device
 COMMENT
 # Make the script terminate if it fails
 set -e
-# Set some constants
+# Set constants
 Username="admin"
 ProjectName="WolkConnect-PLCNext-Store-deployment"
 DestinationDirectory="/opt/plcnext"
@@ -59,3 +59,5 @@ sshpass -p "${Password}" scp -q -r "${Username}"@"${IpAddress}:${DestinationDire
 
 echo "Remove build artifacts from destination"
 sshpass -p "${Password}" ssh "${Username}"@"${IpAddress}" "rm -rf ${AppName}*"
+
+echo "Build is done!"
