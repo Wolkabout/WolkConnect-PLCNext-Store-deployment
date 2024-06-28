@@ -16,31 +16,29 @@ if ! command -v sshpass &>/dev/null; then
   exit
 fi
 
-## Enter the SSH address
-#if [[ -z $1 ]]; then
-#	  while [[ ! $IpAddress =~ ([1-2]?[0-9]?[0-9]\.){3}([1-2]?[0-9]?[0-9]) ]]; do
-#		      read -rp "Enter the SSH address: " IpAddress
-#		        done
-#		else
-#			  IpAddress=$1
-#fi
-#
-##Insert the SSH credentials
-#if [[ -z $2 ]]; then
-#	  Username="admin"
-#	    read -rp "Enter the Username: " -e -i $Username Username
-#    else
-#	      Username=$2
-#fi
-#
-#if [[ -z $3 ]]; then
-#	  read -srp "Enter the Password: " Password
-#	    echo ""
-#    else
-#	      Password=$3
-#fi
-IpAddress="192.168.1.226"
-Password="76f3a801"
+# Enter the SSH address
+if [[ -z $1 ]]; then
+	  while [[ ! $IpAddress =~ ([1-2]?[0-9]?[0-9]\.){3}([1-2]?[0-9]?[0-9]) ]]; do
+		      read -rp "Enter the SSH address: " IpAddress
+		        done
+		else
+			  IpAddress=$1
+fi
+
+#Insert the SSH credentials
+if [[ -z $2 ]]; then
+	  Username="admin"
+	    read -rp "Enter the Username: " -e -i $Username Username
+    else
+	      Username=$2
+fi
+
+if [[ -z $3 ]]; then
+	  read -srp "Enter the Password: " Password
+	    echo ""
+    else
+	      Password=$3
+fi
 echo ${IpAddress} ${Username} ${Password}
 
 # Prepare build artifacts
