@@ -10,3 +10,6 @@
 *.iws
 *.iml
 *.ipr
+
+# Output file
+output/*

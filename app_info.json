@@ -14,7 +14,7 @@
      "linuxdaemons" :
      [
            {
-               "path": "/bin/DockerApp",
+               "path": "/bin/WolkConnect-PLCNext",
                "cmdargs" : "",
                "starttime": "99",
                "initScriptTemplate": "initscript.sh"
