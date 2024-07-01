@@ -42,7 +42,7 @@ fi
 echo ${IpAddress} ${Username} ${Password}
 
 # Prepare build artifacts
-rsync -a --exclude='output' ../../${ProjectName} .
+rsync -a --exclude='output' --exclude='tools' --exclude='.idea' --exclude='.git' ../../${ProjectName} .
 # Copy installation artifacts to PLC
 echo "Transfer installation artifacts"
 sshpass -p "${Password}" scp -r ${ProjectName} "${Username}"@"${IpAddress}:${DestinationDirectory}"

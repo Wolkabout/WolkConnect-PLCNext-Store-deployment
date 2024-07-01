@@ -34,10 +34,9 @@ export APP_LOG="${APP_DATA_PATH}/${APP_NAME}.log" # logfile
 # specify image archives and their accociated IDs in an array
 # IMAGES[<image_ID>]=<image_archive>
 declare -A IMAGES
-#IMAGES[62c6de28ae4c835b0175ab9eb4e0f60b61256f44f1acdcf49b311c72fff2fca4]=plcnext-hello-world-ab0cb70a.tar.gz
-IMAGES[f177131a5397]=wolkabout-plcnext.tar.gz
-IMAGES[23b493345234]=wolkabout-plcnext-webui.tar.gz
-IMAGES[55c4da518792]=arm32v7-redis-alpine.tar.gz
+IMAGES[f177131a5397d6218c6c5400e45ca8651876a99c79c348a46afa475465cba5dc]=wolkabout-plcnext.tar.gz
+IMAGES[23b4933452342936d334080fba91104b3184b60bc11de58632a65b581c79cf50]=wolkabout-plcnext-webui.tar.gz
+IMAGES[55c4da5187920f9d611f6017a5505d075e3395b1a8c943c4d73f13057c4d20f0]=arm32v7-redis-alpine.tar.gz
 # add all volumes to make them accessible to the container users and PLCnext admin (IDs 1002:1002)
 # Space separated list e.g. VOLUMES=("${APP_DATA_PATH}/test1" "${APP_DATA_PATH}/test2")
 declare -a VOLUMES=( "${APP_DATA_PATH}/www" )

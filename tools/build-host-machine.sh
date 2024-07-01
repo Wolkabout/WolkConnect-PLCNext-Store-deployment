@@ -9,7 +9,7 @@ ProjectName="WolkConnect-PLCNext-Store-deployment"
 AppName="WolkConnect-PLCNext"
 
 # Prepare build artifacts
-rsync -a --exclude='output' ../../${ProjectName} .
+rsync -a --exclude='output' --exclude='tools' --exclude='.idea' --exclude='.git' ../../${ProjectName} .
 mksquashfs ${ProjectName} ../output/${AppName}.app -force-uid 1001 -force-gid 1002
 # Remove build artifacts
 rm -rf ${ProjectName}
